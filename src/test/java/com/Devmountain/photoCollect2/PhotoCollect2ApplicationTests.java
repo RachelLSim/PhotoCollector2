@@ -1,0 +1,13 @@
+package com.Devmountain.photoCollect2;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class PhotoCollect2ApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
