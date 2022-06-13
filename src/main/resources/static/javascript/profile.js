@@ -7,13 +7,13 @@ const postContainer = document.getElementById("post-container")
 //modal elements
 let postUrl = document.getElementById(`url-entry`)
 let postCaption = document.getElementById(`caption-entry`)
-let addPostBtn = document.getElementById('add-button')
+// let addPostBtn = document.getElementById('add-button')
 
 const headers = {
     'Content-Type': 'application/json'
 }
 
-const baseUrl = "http://localhost:8090/api/v1/posts"
+const baseUrl = "http://localhost:8070/api/v1/posts"
 
 function handleLogout(){
     let c = document.cookie.split(";")
@@ -126,11 +126,11 @@ const populateModal = (obj) =>{
     addPostBtn.setAttribute('data-post-id', obj.id)
 }
 
-getPosts(userId)
+getPosts(userId).then(r => createPostCards())
 
 submitForm.addEventListener("submit", handleSubmit)
-addPostBtn.addEventListener("click", (e)=>{
-    let postId = e.target.getAttribute("data-post-id")
-    handlePostEdit(postId);
-})
+// addPostBtn.addEventListener("click", (e)=>{
+//     let postId = e.target.getAttribute("data-post-id")
+//     handlePostEdit(postId);
+// })
 
