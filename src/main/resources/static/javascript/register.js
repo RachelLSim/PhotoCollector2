@@ -12,13 +12,13 @@ const baseUrl = 'http://localhost8070/api/v1/users'
 
 const handleSubmit = async (e) =>{
     e.preventDefault()
-
+    console.log("buttonclicked!")
     let bodyObj = {
         username: registerUsername.value,
         password: registerPassword.value
     }
 
-    const response = await fetch(`http://localhost:8070/api/v1/users/register`, {
+    const response = await fetch("http://localhost:8070/api/v1/users/register", {
         method: "POST",
         body: JSON.stringify(bodyObj),
         headers: headers

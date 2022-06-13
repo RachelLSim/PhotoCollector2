@@ -19,17 +19,13 @@
                 <input type="text" class="form-control" id="url-entry" placeholder="Paste URL">
             </div>
             <div class="form-group">
-                <label for="caption-entry">Password</label>
-                <input type="password" class="form-control" id="caption-entry" placeholder="Caption">
+                <label for="caption-entry">Add a caption</label>
+                <input class="form-control" id="caption-entry" placeholder="Caption">
             </div>
             <div class="mt-1">
-                <button id="submit-button" type="submit" class="btn btn-primary">Add</button>
+                <button id="add-button" type="submit" class="btn btn-primary">Add</button>
             </div>
         </form>
-<!--        <div class="register-here" style="padding-top: 20px">-->
-<!--            <h4>Not yet a member?</br> Register here:</h4>-->
-<!--            <a href="./register.html" class="btn btn-secondary">Register</a>-->
-<!--        </div>-->
     </div>
 </div>
 <main role="main">
@@ -42,7 +38,7 @@
         </div>
     </section>
     <div class="album py-5 bg-light">
-        <div class="container">
+        <div class="container" id="post-container">
             <div class="row">
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
