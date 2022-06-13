@@ -2,18 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>PhotoCollect | Profile</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/Styles.css" type="text/css">
 </head>
 <body>
+<div class="sidenav" id="mySidenav">
+    <a class="btn btn-primary mt-1" navbar-btn href="./login.html">Logout</a>
+    </br>
+    </br>
+    <div class="container-md">
+<!--        <h2>URL</h2>-->
+        <form id="url-form">
+            <div class="form-group">
+                <label for="url-entry">Add new photo</label>
+                <input type="text" class="form-control" id="url-entry" placeholder="Paste URL">
+            </div>
+            <div class="form-group">
+                <label for="caption-entry">Password</label>
+                <input type="password" class="form-control" id="caption-entry" placeholder="Caption">
+            </div>
+            <div class="mt-1">
+                <button id="submit-button" type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </form>
+<!--        <div class="register-here" style="padding-top: 20px">-->
+<!--            <h4>Not yet a member?</br> Register here:</h4>-->
+<!--            <a href="./register.html" class="btn btn-secondary">Register</a>-->
+<!--        </div>-->
+    </div>
+</div>
 <main role="main">
     <section class="jumbotron-text-center">
         <div class="container">
-            <h1 class="jumbotron-heading">Album</h1>
-            <p class="lead text-muted">"These are some words you could write on a page. Which are cool. Cool words. on a page."</p>
-            <a href="#" class="btn btn-primary my-2">Main call to action</a>
-            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+            <h1 class="jumbotron-heading">PhotoCollect</h1>
+<!--            <p class="lead text-muted">"These are some words you could write on a page. Which are cool. Cool words. on a page."</p>-->
+<!--            <a href="#" class="btn btn-primary my-2">Main call to action</a>-->
+<!--            <a href="#" class="btn btn-secondary my-2">Secondary action</a>-->
         </div>
     </section>
     <div class="album py-5 bg-light">
