@@ -3,6 +3,8 @@ const userId = cookieArr[1]
 
 const submitForm = document.getElementById("url-form")
 const postContainer = document.getElementById("post-container")
+const headerForm = document.querySelector('#headerForm')
+const header = document.getElementById('header')
 
 //modal elements
 let postUrl = document.getElementById(`url-entry`)
@@ -31,6 +33,15 @@ const handleSubmit = async (e) => {
     await addPost(bodyObj);
     document.getElementById("url-entry").value = ""
     document.getElementById("caption-entry").value = ""
+}
+
+function headerSubHandler(e) {
+    e.preventDefault()
+    let headerURL = document.querySelector('#headerInput')
+
+    header.style.backgroundImage = `url(${headerURL.value})`
+    header.style.height = "250px"
+    headerURL.value = ''
 }
 
 async function addPost(obj) {
@@ -97,22 +108,23 @@ const createPostCards = (array) => {
     postContainer.innerHTML = ''
     array.forEach(obj => {
         let postCard = document.createElement("div")
-        postCard.classList.add("container-fluid")
+        postCard.classList.add("col-md-4")
+        postCard.setAttribute('id',"data-post-id")
         postCard.innerHTML = `
-        <div class="row text-center text-lg-start" id="data-post-id">
-                <div class="col-lg-3 col-md-4 col-6">
-                <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src=${obj.url} alt="photo-url"/>
-                </a>
-                    <p class="card-caption">${obj.caption}</p>
-                    <div class="d-flex justify-content-between">
-                        <button class="btn btn-danger" onclick="handleDelete(${obj.id})">Delete</button>
-                        <button onclick="getPostById(${obj.id})" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#post-edit-modal">
-                        Edit
-                        </button>
-                 </div>
+                <div class="card mb-4 box-shadow">
+				<img class="card-img-top" src=${obj.url} alt="Thumbnail [100%x225]">
+                        <div class="card-body">
+                            <p class="card-text">${obj.caption}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary"  onclick='handleDelete(${obj.id})'>Delete</button>
+<!--                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
+                                </div>
+<!--                                <small class="text-muted">9 mins</small>-->
+                            </div>
+                        </div>
+ 			</div>
             </div>
-        </div>
         `
         postContainer.append(postCard)
     })
@@ -126,9 +138,10 @@ const populateModal = (obj) =>{
     addPostBtn.setAttribute('data-post-id', obj.id)
 }
 
-getPosts(userId).then(r => createPostCards())
+getPosts(userId)
 
 submitForm.addEventListener("submit", handleSubmit)
+headerForm.addEventListener('submit', headerSubHandler)
 // addPostBtn.addEventListener("click", (e)=>{
 //     let postId = e.target.getAttribute("data-post-id")
 //     handlePostEdit(postId);

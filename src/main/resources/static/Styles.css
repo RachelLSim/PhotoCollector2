@@ -12,6 +12,10 @@
     padding-right: 10px;
 }
 
+#header {
+    height: 220px;
+}
+
 /*#main {*/
 /*    margin-left: 200px; !* Same as the width of the sidenav *!*/
 /*}*/
