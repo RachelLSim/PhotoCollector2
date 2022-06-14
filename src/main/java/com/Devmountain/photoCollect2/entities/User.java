@@ -19,12 +19,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String username;
-    @Column
+    @Column(nullable = false)
     private String password;
 
-
+    @Column()
+    private String headerUrl;
 
     @OneToMany(mappedBy = "user", fetch=FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JsonManagedReference

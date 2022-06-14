@@ -18,6 +18,7 @@ public class UserDto implements Serializable {
     private Long id;
     private String username;
     private String password;
+    private String headerUrl;
     private Set<PostDto> postDtoSet = new HashSet<>();
 
 
