@@ -17,10 +17,10 @@ const headers = {
 
 const baseUrl = "http://localhost:8070/api/v1/posts"
 
-function handleLogout(){
+const handleLogout = () => {
     let c = document.cookie.split(";")
     for(let i in c){
-        document.cookie = /^[^=]+/.exec(c[i])[0]+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
+        document.cookie  = /^[^=]+/.exec(c[i])[0] + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
     }
 }
 
@@ -35,17 +35,9 @@ const handleSubmit = async (e) => {
     document.getElementById("caption-entry").value = ""
 }
 
-function headerSubHandler(e) {
-    e.preventDefault()
-    let headerURL = document.querySelector('#headerInput')
 
-    header.style.backgroundImage = `url(${headerURL.value})`
-    header.style.height = "250px"
-    headerURL.value = ''
-}
 
 async function addPost(obj) {
-    console.log("reached addPost function")
     const response = await fetch(`${baseUrl}/user/${userId}`, {
         method: "POST",
         body: JSON.stringify(obj),
@@ -139,6 +131,7 @@ const populateModal = (obj) =>{
 }
 
 getPosts(userId)
+
 
 submitForm.addEventListener("submit", handleSubmit)
 headerForm.addEventListener('submit', headerSubHandler)
