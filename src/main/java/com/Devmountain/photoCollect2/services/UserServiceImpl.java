@@ -47,4 +47,16 @@ public class UserServiceImpl implements UserService {
         }
         return response;
     }
+
+    @Override
+    @Transactional
+    public List<String> updateUserHeaderUrl(UserDto userDto){
+        Optional<User> userOptional = userRepository.findById(userDto.getId());
+        userOptional.ifPresent(user -> {
+            user.setHeaderUrl(userDto.getHeaderUrl());
+            userRepository.saveAndFlush(user);
+        });
+
+        return null;
+    }
 }

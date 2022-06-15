@@ -33,4 +33,8 @@ public class UserDto implements Serializable {
             this.password = user.getPassword();
         }
     }
+
+    public UserDto(String headerUrl) {
+        this.headerUrl = headerUrl;
+    }
 }

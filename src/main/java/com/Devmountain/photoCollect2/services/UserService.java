@@ -10,4 +10,7 @@ public interface UserService {
     List<String> addUser(UserDto userDto);
 
     List<String> userLogin(UserDto userDto);
+
+    @Transactional
+    List<String> updateUserHeaderUrl(UserDto userDto);
 }

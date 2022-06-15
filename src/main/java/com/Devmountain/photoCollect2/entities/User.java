@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -27,9 +28,19 @@ public class User {
     @Column()
     private String headerUrl;
 
+    public String getHeaderUrl() {
+        return headerUrl;
+    }
+
+    public void setHeaderUrl(String headerUrl) {
+        this.headerUrl = headerUrl;
+    }
+
     @OneToMany(mappedBy = "user", fetch=FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JsonManagedReference
     private Set<Post> postSet = new HashSet<>();
+
+
 
     public User(UserDto userDto){
         if(userDto.getUsername() != null){
@@ -40,4 +51,7 @@ public class User {
         }
     }
 
+    public User(String headerUrl) {
+        this.headerUrl = headerUrl;
+    }
 }

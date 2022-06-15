@@ -5,10 +5,7 @@ import com.Devmountain.photoCollect2.dtos.UserDto;
 import com.Devmountain.photoCollect2.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +28,8 @@ public class UserController {
     public List<String> userLogin(@RequestBody UserDto userDto){
         return userService.userLogin(userDto);
     }
+   @PutMapping("/headerUrl")
+    public List<String> addChangeUserHeaderUrl(@RequestBody UserDto userdto) {return userService.updateUserHeaderUrl(userdto);}
 
 }
+
